@@ -1,5 +1,18 @@
 # Railsサンプルアプリケーション on alpine
 
+## 初回
+DB の作成
+```
+$ docker-compose run app rake db:create
+$ docker-compose run app rake db:migrate RAILS_ENV=development
+$ docker-compose run app rake db:migrate RAILS_ENV=test
+```
+
+## test
+```
+$ docker-compose run app rspec
+```
+
 ## bundle install
 Gemfile を更新後、docker build しただけでは Gemfile.lock が更新されない。
 ※ マウントしているため、ホストの Gemfile.lock で上書きされてしまう
