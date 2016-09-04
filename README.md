@@ -9,3 +9,10 @@ $ docker-compose run app bundle install
 #　Gemfile.lock をもとにイメージをビルド
 $ docker-compose build app
 ```
+
+
+## 参考: rails new 時に実行したコマンド
+```
+$ docker-compose run app rails new . --api --database=mysql
+$ docker-compose build app
+```
