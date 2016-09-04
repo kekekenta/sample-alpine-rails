@@ -3,5 +3,5 @@ Gemfile を更新後、docker build しただけでは Gemfile.lock が更新さ
 ※ マウントしているため、ホストの Gemfile.lock で上書きされてしまう
 
 ```
-docker run  -it -v $PWD:/var/app test/sample-alpine bundle install
+$ docker-compose run rails bundle install
 ```
