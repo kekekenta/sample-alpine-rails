@@ -3,6 +3,9 @@ services:
   app:
     build: .
     image: test/sample-alpine-rails
+    command: rails s Puma -b 0.0.0.0
+    ports:
+      - "3000:3000"
     volumes:
       - .:/var/app
     links:

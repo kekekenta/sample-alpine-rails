@@ -1,16 +1,23 @@
 # Railsサンプルアプリケーション on alpine
 
 ## 初回
-DB の作成
+### DB の作成
 ```
 $ docker-compose run app rake db:create
 $ docker-compose run app rake db:migrate RAILS_ENV=development
 $ docker-compose run app rake db:migrate RAILS_ENV=test
 ```
 
+### コンテナの立ち上げ
+```
+$ docker-compose up -d
+$ open http://localhost:3000
+=> Yay! You’re on Rails!
+```
+
 ## test
 ```
-$ docker-compose run app rspec
+$ docker-compose exec app rspec
 ```
 
 ## bundle install
@@ -19,10 +26,7 @@ Gemfile を更新後、docker build しただけでは Gemfile.lock が更新さ
 
 ```
 # コンテナ内で bundle install し、 Gemfile.lock を更新
-$ docker-compose run app bundle install
-
-#　Gemfile.lock をもとにイメージをビルド
-$ docker-compose build app
+$ docker-compose exec app bundle install
 ```
 
 
