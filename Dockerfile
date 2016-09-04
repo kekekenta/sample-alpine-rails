@@ -11,10 +11,7 @@ RUN apk update && \
     $DEV_PACKAGES \
     $RUBY_PACKAGES && \
     mkdir -p /var/app && \
-    adduser -D rails && addgroup rails rails && \
-    chown -R rails:rails /var/app && \
-    echo "rails ALL=(ALL) ALL" >> /etc/sudoers
-
+    adduser -D rails && addgroup rails rails
 
 WORKDIR /var/app
 COPY Gemfile ./Gemfile
