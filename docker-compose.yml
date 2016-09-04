@@ -5,3 +5,9 @@ services:
     image: test/sample-alpine-rails
     volumes:
       - .:/var/app
+    links:
+      - db
+  db:
+    image: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
