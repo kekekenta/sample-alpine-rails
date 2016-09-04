@@ -21,13 +21,14 @@ $ docker-compose exec app rspec
 ```
 
 ## bundle install
-Gemfile を更新後、docker build しただけでは Gemfile.lock が更新されない。
-※ マウントしているため、ホストの Gemfile.lock で上書きされてしまう
+Gemfile を変更した際には、コンテナ内で bundle install を実行する。
 
 ```
 # コンテナ内で bundle install し、 Gemfile.lock を更新
 $ docker-compose exec app bundle install
 ```
+
+- docker-compose build では、ホストの Gemfile.lock をイメージにコピーした上で bundle install を実行するため、ホストの Gemfile.lock は更新されない.
 
 
 ## 参考: rails new 時に実行したコマンド
